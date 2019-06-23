@@ -11,7 +11,7 @@ function preexec() {
 
 function precmd() {
   if [ $time_set ]; then
-    RPROMPT='[${timer}]-[%*]'
+    RPROMPT='[${timer} - %*]'
   else
     RPROMPT='[%*]'
     unset timer
