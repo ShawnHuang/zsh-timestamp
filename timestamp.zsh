@@ -1,5 +1,3 @@
-fpath+="${0:h}/src"
-
 del-time-prompt-accept-line() {
    zle accept-line
 }
