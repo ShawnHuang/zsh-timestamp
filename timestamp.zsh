@@ -23,7 +23,6 @@ function timer_precmd() {
 autoload -Uz add-zsh-hook
 add-zsh-hook preexec timer_preexec
 add-zsh-hook precmd timer_precmd
-add-zsh-hook -L precmd
 
 
 # rgs() {
