@@ -3,7 +3,7 @@
 #}
 #zle -N del-time-prompt-accept-line
 #bindkey "^M" del-time-prompt-accept-line
-function timer_preexec() {
+function preexec() {
   timer=`date '+%H:%M:%S'`
   time_set="1"
   RPROMPT='[${timer} - %*]'
