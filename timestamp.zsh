@@ -1,22 +1,19 @@
-#
-#del-time-prompt-accept-line() {
+# del-time-prompt-accept-line() {
 #   zle accept-line
 #}
 #zle -N del-time-prompt-accept-line
 #bindkey "^M" del-time-prompt-accept-line
-
-function preexec() {
+function timer_preexec() {
   timer=`date '+%H:%M:%S'`
   time_set="1"
   RPROMPT='[${timer} - %*]'
 }
-
 function precmd() {
   if [ $time_set ]; then
     RPROMPT='[${timer} - %*]'
   else
-    RPROMPT='[%*]'
-    unset timer
+      RPROMPT='[%*]'
+      unset timer
   fi
   unset time_set
 }
