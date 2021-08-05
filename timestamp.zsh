@@ -3,12 +3,14 @@
 #}
 #zle -N del-time-prompt-accept-line
 #bindkey "^M" del-time-prompt-accept-line
-function preexec() {
+function time_preexec() {
+  echo "preexec"
   timer=`date '+%H:%M:%S'`
   time_set="1"
   RPROMPT='[${timer} - %*]'
 }
-function precmd() {
+function time_precmd() {
+  echo "precmd"
   if [ $time_set ]; then
     RPROMPT='[${timer} - %*]'
   else
@@ -19,8 +21,8 @@ function precmd() {
 }
 
 autoload -Uz add-zsh-hook
-add-zsh-hook preexec preexec
-add-zsh-hook precmd precmd
+add-zsh-hook preexec time_preexec
+add-zsh-hook precmd time_precmd
 
 
 # rgs() {
